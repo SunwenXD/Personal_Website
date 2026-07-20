@@ -1,11 +1,71 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="關於我">
+  <section class="max-w-3xl mx-auto px-6 py-20">
+    <h1 class="text-4xl font-bold mb-6">關於我</h1>
+    <div class="text-lg text-gray-400 leading-relaxed mb-8 space-y-2">
+      <p>最高學歷：雲林科技大學 AI 專班</p>
+      <p>技術栈：Docker, Python, Flutter, YOLO, Vue, PostgreSQL, n8n</p>
+      <p>喜歡透過小工具自動化流程，降低工作量。</p>
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-4">語言能力</h2>
+    <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 mb-8 inline-block">
+      <span class="text-3xl font-bold text-blue-400">525</span>
+      <span class="text-gray-400 ml-2">TOEIC 多益分數</span>
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-4">證照</h2>
+    <div class="grid grid-cols-2 gap-4 mb-8">
+      <div class="cert-card bg-gray-900/50 border-l-4 border-blue-500 rounded-xl p-4 flex items-center">
+        <span class="text-blue-300 font-medium">數位電子乙級</span>
+      </div>
+      <div class="cert-card bg-gray-900/50 border-l-4 border-emerald-500 rounded-xl p-4 flex items-center">
+        <span class="text-emerald-300 font-medium">硬體裝修丙級</span>
+      </div>
+      <div class="cert-card bg-gray-900/50 border-l-4 border-purple-500 rounded-xl p-4 flex items-center">
+        <span class="text-purple-300 font-medium">工業電子丙級</span>
+      </div>
+      <div class="cert-card bg-gray-900/50 border-l-4 border-amber-500 rounded-xl p-4 flex items-center">
+        <span class="text-amber-300 font-medium">軟體應用丙級</span>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-4">獎項與成就</h2>
+    <div class="text-gray-400 space-y-6">
+      <div>
+        <h3 class="text-lg font-medium text-gray-300 mb-2">高中</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>全國高級中等學校電機與電子群111年專題及創意製作競賽（複賽）— 佳作</li>
+          <li>2020 全國雲端 APP 行動創意應用競賽 — 第三名</li>
+          <li>2022 年嘉藥盃全國高中職專題製作競賽 — 金牌獎</li>
+          <li>2022 中華科技大學策略聯盟高中職學生專題競賽 — 佳作</li>
+          <li>2022 全國高中職專題製作競賽 — 佳作</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-medium text-gray-300 mb-2">大學</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>2024 國立雲林科技大學 AI 創意競賽 — 第三名</li>
+          <li>2024 全國大專院校產學創新實作競賽 — 最佳創新獎</li>
+          <li>2023 全國大專院校產學創新實作競賽 — 佳作</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .cert-card {
+    animation: zoom-scroll linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+
+  @keyframes zoom-scroll {
+    from { scale: 0.6; opacity: 0.3; }
+    to   { scale: 1; opacity: 1; }
+  }
+</style>
