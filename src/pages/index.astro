@@ -1,20 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="關於我">
-  <section class="max-w-3xl mx-auto px-6 py-20">
+  <section class="max-w-3xl mx-auto px-6 py-20 overflow-visible">
+    <div class="flex items-start gap-6">
+      <img src="https://raw.githubusercontent.com/SunwenXD/SunwenXD/master/src/neuro.gif" alt="avatar" class="w-40 h-40 rounded-full object-contain shrink-0 mt-4 ring-2 ring-blue-500/50 avatar-glow" />
+      <div>
     <h1 class="text-4xl font-bold mb-6">關於我</h1>
     <div class="text-lg text-gray-400 leading-relaxed mb-8 space-y-2">
       <p>最高學歷：雲林科技大學 AI 專班</p>
-      <p>技術栈：Docker, Python, Flutter, YOLO, Vue, PostgreSQL, n8n</p>
-      <p>喜歡透過小工具自動化流程，降低工作量。</p>
+      <p class="flex items-center gap-3 flex-wrap">
+        <span class="text-gray-400">技術栈：</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:docker" class="size-5 text-blue-400" />Docker</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:python" class="size-5 text-[#3776AB]" />Python</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:flutter" class="size-5 text-cyan-400" />Flutter</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:yolo" class="size-5 text-[#111F68]" />YOLO</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:vuedotjs" class="size-5 text-emerald-400" />Vue</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:postgresql" class="size-5 text-blue-400" />PostgreSQL</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:n8n" class="size-5 text-red-400" />n8n</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:fastapi" class="size-5 text-[#009688]" />FastAPI</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:tailwindcss" class="size-5 text-[#06B6D4]" />Tailwind CSS</span>
+        <span class="flex items-center gap-1.5"><Icon name="simple-icons:git" class="size-5 text-[#F03C2E]" />Git</span>
+      </p>
+      <p>介紹：喜歡透過ai agent製作小工具來達成自動化流程，降低工作量。</p>
+    </div>
+      </div>
     </div>
 
     <h2 class="text-2xl font-semibold mb-4">語言能力</h2>
-    <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 mb-8 inline-block">
-      <span class="text-3xl font-bold text-blue-400">525</span>
-      <span class="text-gray-400 ml-2">TOEIC 多益分數</span>
+    <div class="relative mb-8 overflow-hidden rounded-2xl border border-blue-500/20 bg-gradient-to-br from-gray-900/60 to-gray-900/20 p-6">
+      <div class="flex flex-col items-center">
+        <span class="text-gray-400 tracking-wide mb-1">多益</span>
+        <div>
+          <span id="toeic-score" class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">0</span>
+          <span class="text-xl text-gray-300 ml-1">分</span>
+        </div>
+      </div>
     </div>
 
     <h2 class="text-2xl font-semibold mb-4">證照</h2>
@@ -68,4 +91,30 @@ import Layout from "../layouts/Layout.astro";
     from { scale: 0.6; opacity: 0.3; }
     to   { scale: 1; opacity: 1; }
   }
+
+  .avatar-glow {
+    animation: glow-pulse 10s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.3); }
+    50%      { box-shadow: 0 0 20px rgba(59, 130, 246, 0.7), 0 0 40px rgba(59, 130, 246, 0.3); }
+  }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const el = document.getElementById("toeic-score");
+    if (!el) return;
+    const target = 525;
+    const duration = 1200;
+    const start = performance.now();
+    function update(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.floor(eased * target);
+      if (t < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+</script>
