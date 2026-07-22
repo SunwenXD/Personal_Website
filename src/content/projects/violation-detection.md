@@ -14,7 +14,6 @@ tags:
   - "@vue"
   - "@flutter"
   - "@docker"
-  - "@leaflet"
   - "@tailwind-css"
 ---
 

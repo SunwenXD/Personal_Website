@@ -11,7 +11,7 @@ export interface Props {
 const { title, description, image, link, tags = [], detailHref } = Astro.props;
 ---
 
-<article class="relative bg-gray-900 border border-gray-800 rounded-xl overflow-hidden transition-transform duration-200 hover:scale-[1.02]">
+<article class="relative bg-gray-900 border border-blue-500/20 rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:border-blue-400/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.25)]">
   {
     detailHref && (
       <a href={detailHref} class="absolute inset-0 z-10" aria-label={title} />
