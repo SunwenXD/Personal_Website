@@ -1,20 +1,31 @@
 ---
+import { Icon } from "astro-icon/components";
 const currentPath = Astro.url.pathname;
 ---
 
 <nav class="flex items-center justify-center gap-8 py-6 border-b border-gray-800">
   <a
     href="/Personal_Website/"
-    class="text-lg font-medium transition-colors duration-200"
+    class="flex items-center gap-1.5 text-lg font-medium transition-colors duration-200"
     class:list={{ "text-white": currentPath === "/Personal_Website/" || currentPath === "/Personal_Website", "text-gray-400 hover:text-white": currentPath !== "/Personal_Website/" && currentPath !== "/Personal_Website" }}
   >
     關於我
   </a>
   <a
     href="/Personal_Website/portfolio"
-    class="text-lg font-medium transition-colors duration-200"
+    class="flex items-center gap-1.5 text-lg font-medium transition-colors duration-200"
     class:list={{ "text-white": currentPath.startsWith("/Personal_Website/portfolio"), "text-gray-400 hover:text-white": !currentPath.startsWith("/Personal_Website/portfolio") }}
   >
+    <Icon name="simple-icons:files" class="size-5" />
     作品集
+  </a>
+  <a
+    href="https://app.notion.com/p/sunwenxd/3a60d1171832805da526d14b73be6713"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center gap-1.5 text-lg font-medium text-gray-400 hover:text-white transition-colors duration-200"
+  >
+    <Icon name="simple-icons:notion" class="size-5" />
+    Notion
   </a>
 </nav>
