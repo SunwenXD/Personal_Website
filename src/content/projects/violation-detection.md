@@ -46,3 +46,14 @@ tags:
 - **高效能的邊緣運算應用**：透過將 YOLO 模型部署於手機端，有效解決了傳統架構需傳輸大量影像至伺服器造成的頻寬浪費與延遲問題，保護了使用者隱私。
 - **資料驅動的空間分析能力**：結合 PostgreSQL 空間處理與 Leaflet 地圖視覺化，成功將非結構化的違規影像轉化為結構化的地理資訊數據，可輔助執法單位進行統計與防範分析。
 - **全流程自動化**：極簡化了使用者操作步驟（拍攝即完成所有資料整理與上傳），提升了違規檢舉的效率與準確度。
+
+## 媒體
+
+<div class="grid grid-cols-1 gap-8 my-8">
+  <div>
+    <h3 class="text-lg font-semibold mb-3">🎬 示範影片 - YouTube</h3>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px;">
+      <iframe src="https://www.youtube.com/embed/yH9HFacW7EU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
